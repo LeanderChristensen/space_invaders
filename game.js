@@ -9,16 +9,16 @@ class Game extends Phaser.Scene
 	}
 	preload ()
 	{
-		this.load.image('player', 'assets/images/player/player.png');
-		this.load.image('octopus', 'assets/images/enemies/octopus_2.png');
-		this.load.image('crab', 'assets/images/enemies/crab_2.png');
-		this.load.image('squid', 'assets/images/enemies/squid_2.png');
-		this.load.image('top-left-0', 'assets/images/bunker/top-left-0.png');
-		this.load.image('top-right-0', 'assets/images/bunker/top-right-0.png');
-		this.load.image('center-left-0', 'assets/images/bunker/center-left-0.png');
-		this.load.image('center-right-0', 'assets/images/bunker/center-right-0.png');
+		this.load.image('player', 'assets/images/player.png');
+		this.load.image('octopus', 'assets/images/octopus.png');
+		this.load.image('crab', 'assets/images/crab.png');
+		this.load.image('squid', 'assets/images/squid.png');
+		this.load.image('top-left', 'assets/images/bunker/top-left.png');
+		this.load.image('top-right', 'assets/images/bunker/top-right.png');
+		this.load.image('center-left', 'assets/images/bunker/center-left.png');
+		this.load.image('center-right', 'assets/images/bunker/center-right.png');
+		this.load.image('plain', 'assets/images/bunker/plain.png');
 		this.load.image('bullet', 'assets/images/bullet.png');
-		this.load.image('plain-0', 'assets/images/bunker/plain-0.png');
 		this.load.audio('shoot', 'assets/sound/shoot.wav' );
 		this.load.audio('explosion', 'assets/sound/explosion.wav' );
 		this.load.audio('invaderkilled', 'assets/sound/invaderkilled.wav' );
@@ -125,18 +125,18 @@ class Game extends Phaser.Scene
 		this.bunker = [[],[],[],[]];
 		this.bunkerHealth = [8,8,8,8];
 		for (let k = 0; k < 4; k++) {
-			this.bunker[k].push(this.physics.add.image(62+(k*98), 374, 'top-left-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(98+(k*98), 374, 'top-right-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(62+(k*98), 386, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(86+(k*98), 386, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(86+(k*98), 374, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(62+(k*98), 398, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(74+(k*98), 374, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(74+(k*98), 386, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(98+(k*98), 386, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(98+(k*98), 398, 'plain-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(74+(k*98), 398, 'center-left-0').setScale(0.5).setImmovable());
-			this.bunker[k].push(this.physics.add.image(86+(k*98), 398, 'center-right-0').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(62+(k*98), 374, 'top-left').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(98+(k*98), 374, 'top-right').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(62+(k*98), 386, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(86+(k*98), 386, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(86+(k*98), 374, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(62+(k*98), 398, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(74+(k*98), 374, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(74+(k*98), 386, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(98+(k*98), 386, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(98+(k*98), 398, 'plain').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(74+(k*98), 398, 'center-left').setScale(0.5).setImmovable());
+			this.bunker[k].push(this.physics.add.image(86+(k*98), 398, 'center-right').setScale(0.5).setImmovable());
 			this.physics.add.collider(this.playerBullet, this.bunker[k], () => {
 				this.playerBullet.setVelocityY(0);
 				this.playerBullet.y = 250;
