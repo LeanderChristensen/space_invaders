@@ -358,7 +358,7 @@ class Game extends Phaser.Scene
 		if (this.enemyBullet.x == 5000) {
 			this.enemyBullet.x = Math.floor(Math.random() * 449);;
 			this.enemyBullet.y = this.shootLine;
-			this.enemyBullet.setVelocityY(100);
+			this.enemyBullet.setVelocityY(150);
 		}
 		if (this.keys.SPACE.isDown && !this.shooting && this.playerBullet.x == 5000) {
 			this.shooting = true;
